@@ -4,8 +4,16 @@ import { useState } from "react";
 import { Input } from "./ui/input";
 import { PokemonCard } from "./pokemon-card";
 
-export function PokemonGrid() {
+// <PokemonGrid pokemonList ={data}/>
+
+interface PokemonGridProps {
+  pokemonList: any;
+}
+
+export function PokemonGrid({ pokemonList }: PokemonGridProps) {
   const [searchText, setSearchText] = useState("");
+
+  console.log(pokemonList);
 
   return (
     <>
@@ -22,11 +30,13 @@ export function PokemonGrid() {
             onChange={(e) => setSearchText(e.target.value)}
           />
         </div>
+        <h4 className="text-3xl padding-20 pb-8 text-center">Pokemonid</h4>
       </div>
 
       <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <PokemonCard name="arboc" />
-
+        {pokemonList.map((pokemon: any) => {
+          return <PokemonCard name={pokemon.name} />;
+        })}
       </div>
     </>
   );

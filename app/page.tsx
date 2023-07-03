@@ -1,9 +1,11 @@
 import { PokemonGrid } from "@/components/pokemon-grid";
 import { PokemonCard } from "@/components/pokemon-card";
 import Image from "next/image";
+import { getPokemonList } from "@/lib/pokemonAPI";
 
-export default function Home() {
+export default async function Home() {
   //load in data
+  const pokemonList = await getPokemonList();
   //text input filteres pokemon cards
   //useState to handle input
   //text input filter current data
@@ -16,6 +18,6 @@ export default function Home() {
   //step 2. load in data from PokemonAPI
   //step 3. Pass in data to PokemonGrid from API call 
   return (
-    <PokemonGrid/>
+    <PokemonGrid pokemonList={pokemonList}/>
   );
 }
