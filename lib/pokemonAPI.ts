@@ -10,3 +10,8 @@ export async function getPokemonList(){
 }
 
 //getPokemon - võtame stringi nt. "arbok" ja saame andmed
+export async function getPokemon(name:string){
+    const response = await fetch(POKEMON_API + "pokemon/" + name)
+    const data = await response.json();
+    return data;    
+}
