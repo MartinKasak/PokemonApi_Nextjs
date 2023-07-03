@@ -31,9 +31,9 @@ export function PokemonGrid({ pokemonList }: PokemonGridProps) {
     <>
       <div>
         <h3 className="text-2xl py-6 text-center">Otsi Pokemon</h3>
-        <div className="grid w-full max-w-sm item-center gap-1.5">
+        <div className="grid w-full max-w-sm item-center gap-1.5 text-center">
           <Label htmlFor="pokemonName">Pokemoni nimi</Label>
-          <Input
+          <Input className="mt-5"
             type="text"
             value={searchText}
             autoComplete="off"
@@ -42,10 +42,10 @@ export function PokemonGrid({ pokemonList }: PokemonGridProps) {
             onChange={(e) => setSearchText(e.target.value)}
           />
         </div>
-        <h4 className="text-3xl padding-20 pb-8 text-center">Pokemonid</h4>
+        <h4 className="mt-7 text-3xl padding-20 pb-8 text-center">Pokemonid</h4>
       </div>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
+      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-center">
         {filteredPokemonList.map((pokemon: any) => {
           return <PokemonCard name={pokemon.name} key = {pokemon.name + "Card"}/>;
         })}
